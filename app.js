@@ -9,7 +9,7 @@ const app = express();
 // connect to mongodb & listen for requests
 const dbURI = "mongodb+srv://keyur:keyur@keyur.ljjxolk.mongodb.net/key?retryWrites=true&w=majority&appName=keyur";
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURI)
   .then(result => app.listen(3000))
   .catch(err => console.log(err));
 
