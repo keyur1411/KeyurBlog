@@ -6,8 +6,10 @@ const blogRoutes = require('./routes/blogRoutes');
 // express app
 const app = express();
 
+require('dotenv').config();
 // connect to mongodb & listen for requests
-const dbURI = "mongodb+srv://keyur:keyur@keyur.ljjxolk.mongodb.net/key?retryWrites=true&w=majority&appName=keyur";
+const PORT = process.env.PORT || 8080;
+const dbURI = process.env.DBU;
 
 mongoose.connect(dbURI)
   .then(result => app.listen(3000))
@@ -41,3 +43,7 @@ app.use('/blogs', blogRoutes);
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
+
+app.listen(PORT,()=>{
+  console.log(`server ${PORT}`)
+})
