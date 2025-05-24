@@ -1,28 +1,58 @@
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+  <%- include("./partials/head.ejs") %>
 
-<body>
-  <%- include("./partials/nav.ejs") %>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
 
-  <div class="about content">
-    <h2>About Me</h2>
-<p>Welcome to Keyur Blog — a space where passion for technology, personal growth, and creative storytelling come together.
+    .about.content {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-I'm Keyurkumar Kanjariya, a B.Tech student in Chemical Engineering at IIT BHU, a tech enthusiast, and someone who believes in building things that matter. This blog is an extension of my journey — from solving algorithmic problems at midnight to leading one of the largest college digital art festivals in India.
+    .about h2 {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
 
-I began my programming journey like many others — curious and self-taught. Over time, this curiosity turned into consistency, and today, I’m proud to hold a Codeforces rating of 1570 (highest) and growing. I love working with C++, React, NodeJS, and MongoDB, and I’ve built projects ranging from task planners to weather apps.
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  </style>
 
-But life hasn't always been code and pixels. During my drop year, I underwent surgery — a phase that tested my patience, resilience, and mental strength. That period of stillness gave me a chance to reflect and rebuild. It taught me that persistence often matters more than pace.
+  <body>
+    <%- include("./partials/nav.ejs") %>
 
-At IIT BHU, I’m also the Marketing Head of FMC Weekend, India’s largest digital art fest, where I’ve learned the art of leadership, communication, and building community. I believe a coder isn’t just someone who writes code — but someone who can create, collaborate, and contribute beyond the terminal window.
+    <div class="about content">
+      <h2>About Me</h2>
+      <p>
+        Welcome to Keyur Blog — a space where passion for technology, personal growth, and creative storytelling come together.
 
-This blog is not just about coding. It's about the challenges, the detours, the growth, and the moments that shape us. Whether you're here to read, learn, or share your own story — welcome aboard.
+        I'm Keyurkumar Kanjariya, a B.Tech student in Chemical Engineering at IIT BHU, a tech enthusiast, and someone who believes in building things that matter. This blog is an extension of my journey — from solving algorithmic problems at midnight to leading one of the largest college digital art festivals in India.
 
-Let’s grow together. 🚀
+        I began my programming journey like many others — curious and self-taught. Over time, this curiosity turned into consistency, and today, I’m proud to hold a Codeforces rating of 1570 (highest) and growing. I love working with C++, React, NodeJS, and MongoDB, and I’ve built projects ranging from task planners to weather apps.
 
-</p>
-     </div>
+        But life hasn't always been code and pixels. During my drop year, I underwent surgery — a phase that tested my patience, resilience, and mental strength. That period of stillness gave me a chance to reflect and rebuild. It taught me that persistence often matters more than pace.
 
-  <%- include("./partials/footer.ejs") %>
-</body>
+        At IIT BHU, I’m also the Marketing Head of FMC Weekend, India’s largest digital art fest, where I’ve learned the art of leadership, communication, and building community. I believe a coder isn’t just someone who writes code — but someone who can create, collaborate, and contribute beyond the terminal window.
+
+        This blog is not just about coding. It's about the challenges, the detours, the growth, and the moments that shape us. Whether you're here to read, learn, or share your own story — welcome aboard.
+
+        Let’s grow together. 🚀
+      </p>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
 </html>
