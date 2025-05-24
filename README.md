@@ -1,4 +1,4 @@
-# Keyur's Tech Blog
+# Keyur's Blog
 
 A simple, clean blogging platform built with Node.js, Express, and EJS templating.  
 This project serves as my personal tech and storytelling blog where I share my journey in programming, projects, and personal growth.
