@@ -1,35 +1,91 @@
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+  <%- include("./partials/head.ejs") %>
 
-<body>
-  <%- include("./partials/nav.ejs") %>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
 
-  <div class="details content">
-    <h2><%= blog.title %></h2>
-    <div class="content">
-      <p><%= blog.body %></p>
+    .details.content {
+      max-width: 700px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .details h2 {
+      font-size: 2.2rem;
+      color: #007bff;
+      margin-bottom: 25px;
+    }
+
+    .details .content p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      white-space: pre-wrap; /* preserve formatting in blog body */
+    }
+
+    a.delete {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    a.delete:hover {
+      opacity: 1;
+    }
+
+    a.delete img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="details content">
+      <h2><%= blog.title %></h2>
+      <div class="content">
+        <p><%= blog.body %></p>
+      </div>
+      <a class="delete" data-doc="<%= blog._id %>" title="Delete blog">
+        <img src="/trashcan.svg" alt="delete icon" />
+      </a>
     </div>
-    <a class="delete" data-doc="<%= blog._id %>">
-      <img src="/trashcan.svg" alt="delete icon">
-    </a>
-  </div>
 
-  <%- include("./partials/footer.ejs") %>
+    <%- include("./partials/footer.ejs") %>
 
-  <script>
-    const trashcan = document.querySelector('a.delete');
+    <script>
+      const trashcan = document.querySelector('a.delete');
 
-    trashcan.addEventListener('click', (e) => {
-      const endpoint = `/blogs/${trashcan.dataset.doc}`;
+      trashcan.addEventListener('click', (e) => {
+        e.preventDefault();  // prevent default anchor behavior
+        if (confirm("Are you sure you want to delete this blog?")) {
+          const endpoint = `/blogs/${trashcan.dataset.doc}`;
 
-      fetch(endpoint, {
-        method: 'DELETE',
-      })
-      .then(response => response.json())
-      .then(data => window.location.href = data.redirect)
-      .catch(err => console.log(err));
-    });
-    
-  </script>
-</body>
+          fetch(endpoint, {
+            method: 'DELETE',
+          })
+          .then(response => response.json())
+          .then(data => window.location.href = data.redirect)
+          .catch(err => console.error(err));
+        }
+      });
+    </script>
+  </body>
 </html>
