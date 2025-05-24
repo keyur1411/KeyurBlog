@@ -1,13 +1,35 @@
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+  <%- include("./partials/head.ejs") %>
 
-<body>
-  <%- include("./partials/nav.ejs") %>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
 
-  <div class="not-found content">
-    OOPS, page not found :)
-  </div>
+    .not-found.content {
+      max-width: 600px;
+      margin: 100px auto;
+      background-color: #fff;
+      padding: 50px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-size: 1.5rem;
+      color: #dc3545;
+    }
+  </style>
 
-  <%- include("./partials/footer.ejs") %>
-</body>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="not-found content">
+      OOPS, page not found 🙂
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
 </html>
