@@ -1,25 +1,94 @@
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+  <%- include("./partials/head.ejs") %>
 
-<body>
-  <%- include("./partials/nav.ejs") %>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
 
-  <div class="blogs content">
-    <h2>All Blogs</h2>
+    .blogs.content {
+      max-width: 700px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-    <% if (blogs.length > 0) { %>
-      <% blogs.forEach(blog => { %>
-        <a class="single" href="/blogs/<%= blog._id %>">
-          <h3 class="title"><%= blog.title %></h3>
-          <p class="snippet"><%= blog.snippet %></p>
-        </a>
-      <% }) %>
-    <% } else { %>
-      <p>There are no blogs to display...</p>
-    <% } %>
-    
-  </div>
+    .blogs h2 {
+      color: #007bff;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      text-align: center;
+    }
 
-  <%- include("./partials/footer.ejs") %>
-</body>
+    a.single {
+      display: block;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      background-color: #f4f8ff;
+      border-left: 6px solid #007bff;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    a.single:hover {
+      background-color: #e1eaff;
+      box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
+      color: #0056b3;
+    }
+
+    a.single .title {
+      margin: 0 0 8px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    a.single .snippet {
+      margin: 0;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    p {
+      text-align: center;
+      font-style: italic;
+      color: #777;
+      font-size: 1.1rem;
+      margin-top: 40px;
+    }
+  </style>
+
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="blogs content">
+      <h2>All Blogs</h2>
+
+      <% if (blogs.length > 0) { %>
+        <% blogs.forEach(blog => { %>
+          <a class="single" href="/blogs/<%= blog._id %>">
+            <h3 class="title"><%= blog.title %></h3>
+            <p class="snippet"><%= blog.snippet %></p>
+          </a>
+        <% }) %>
+      <% } else { %>
+        <p>There are no blogs to display...</p>
+      <% } %>
+
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
 </html>
